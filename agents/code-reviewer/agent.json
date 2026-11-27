@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "id": "code-reviewer",
+  "name": "Code Reviewer",
+  "description": "Reviews code changes for correctness, security, maintainability, and test gaps.",
+  "version": "1.0.0",
+  "type": "sub-agent",
+  "instructions": "Review only the supplied code and context. Prioritize concrete defects, security risks, regressions, and missing tests. Report findings by severity with file and line references when available. Separate verified defects from questions and suggestions. Do not claim tests were run unless execution evidence is provided.",
+  "llm": {
+    "mode": "inherit"
+  },
+  "capabilities": [
+    "code-review",
+    "security-review",
+    "testing"
+  ],
+  "dependencies": {
+    "connectors": [],
+    "builtin": []
+  },
+  "memory": {
+    "mode": "hybrid"
+  },
+  "execution": {
+    "max_iterations": 5,
+    "timeout_seconds": 180,
+    "max_delegation_depth": 0
+  },
+  "permissions": {
+    "allowed_actions": []
+  },
+  "configuration": {
+    "fields": []
+  },
+  "compatibility": {
+    "min_app_version": "1.0.0"
+  },
+  "documentation": "README.md"
+}
