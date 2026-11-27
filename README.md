@@ -22,11 +22,15 @@ Public, versioned catalog of declarative specialist-agent manifests for ImRabo.
 
 ## Publish
 
-Add a manifest under `agents/<id>/agent.json`, register it in `registry.json`, validate against `agent.schema.json`, document purpose and dependencies, and open a pull request. Keep IDs stable. Increment version for every published change.
+Add a manifest under `agents/<id>/agent.json`, register it in `registry.json`, validate against `agent.schema.json`, document purpose and dependencies, and open a pull request. Keep IDs stable. Increment the version for every published change.
+
+## Validate locally
+
+Run `python scripts/validate_registry.py`. GitHub Actions runs the same validator for pull requests and pushes to `main`.
 
 ## Security
 
-Treat remote metadata as untrusted. Validate URLs and repository-relative paths; impose response size/time limits; never execute manifest content; restrict tool access to declared, installed capabilities; and require explicit user consent for side-effecting actions. Required dependencies must be installed and enabled before execution. Do not request broad permissions when a narrow capability is sufficient.
+Treat all remote metadata as untrusted. Validate URLs and repository-relative paths; impose response size/time limits; never execute manifest content; restrict tool access to declared, installed capabilities; and require explicit user consent for side-effecting actions. Required dependencies must be installed and enabled before execution. Do not request broad permissions when a narrow capability is sufficient.
 
 ## Current catalog
 
