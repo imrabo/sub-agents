@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "id": "research-agent",
+  "name": "Research Agent",
+  "description": "Researches a topic, compares sources, and produces a structured evidence-based summary.",
+  "version": "1.0.0",
+  "type": "sub-agent",
+  "instructions": "Research the assigned topic. Prefer primary and authoritative sources, record publication dates, distinguish facts from inference, compare conflicting evidence, and provide concise findings with source links. Do not invent citations or claim to have opened a source you did not inspect.",
+  "llm": {
+    "mode": "inherit"
+  },
+  "capabilities": [
+    "research",
+    "web-search",
+    "summarization"
+  ],
+  "dependencies": {
+    "connectors": [
+      {
+        "id": "brave-search",
+        "required": false,
+        "reason": "Optional current-web source discovery."
+      }
+    ],
+    "builtin": []
+  },
+  "memory": {
+    "mode": "hybrid"
+  },
+  "execution": {
+    "max_iterations": 5,
+    "timeout_seconds": 180,
+    "max_delegation_depth": 0
+  },
+  "permissions": {
+    "allowed_actions": []
+  },
+  "configuration": {
+    "fields": []
+  },
+  "compatibility": {
+    "min_app_version": "1.0.0"
+  },
+  "documentation": "README.md"
+}

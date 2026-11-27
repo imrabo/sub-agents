@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/imrabo/sub-agents/main/agent.schema.json",
+  "title": "ImRabo Sub-Agent Manifest",
+  "type": "object",
+  "required": ["schema_version", "id", "name", "description", "instructions", "version", "type"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]{1,62}$"},
+    "name": {"type": "string", "minLength": 1, "maxLength": 80},
+    "description": {"type": "string", "maxLength": 500},
+    "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "type": {"const": "sub-agent"},
+    "instructions": {"type": "string", "minLength": 1, "maxLength": 20000},
+    "llm": {"type": "object", "properties": {"mode": {"enum": ["inherit"]}}, "additionalProperties": false},
+    "capabilities": {"type": "array", "items": {"type": "string"}},
+    "dependencies": {
+      "type": "object",
+      "properties": {
+        "connectors": {"type": "array", "items": {"type": "object", "required": ["id"], "properties": {"id": {"type": "string"}, "required": {"type": "boolean"}, "reason": {"type": "string"}}, "additionalProperties": false}},
+        "builtin": {"type": "array", "items": {"type": "string"}}
+      }, "additionalProperties": false
+    },
+    "memory": {"type": "object", "properties": {"mode": {"enum": ["shared", "isolated", "hybrid"]}}, "additionalProperties": false},
+    "execution": {"type": "object", "properties": {"max_iterations": {"type": "integer", "minimum": 1, "maximum": 12}, "timeout_seconds": {"type": "integer", "minimum": 5, "maximum": 600}, "max_delegation_depth": {"const": 0}}, "additionalProperties": false},
+    "permissions": {"type": "object", "properties": {"allowed_actions": {"type": "array", "items": {"type": "string"}}}, "additionalProperties": false},
+    "configuration": {"type": "object", "properties": {"fields": {"type": "array", "items": {"type": "object"}}}, "additionalProperties": false},
+    "compatibility": {"type": "object", "properties": {"min_app_version": {"type": "string"}}, "additionalProperties": false},
+    "documentation": {"type": "string"}
+  },
+  "additionalProperties": false
+}
