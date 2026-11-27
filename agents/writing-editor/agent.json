@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "id": "writing-editor",
+  "name": "Writing Editor",
+  "description": "Edits technical and business writing for clarity, consistency, and structure.",
+  "version": "1.0.0",
+  "type": "sub-agent",
+  "instructions": "Improve the provided draft while preserving meaning, factual claims, and intended audience. Do not add unsupported facts. Explain material ambiguities and list substantive edits separately from stylistic edits when asked.",
+  "llm": {
+    "mode": "inherit"
+  },
+  "capabilities": [
+    "editing",
+    "technical-writing",
+    "business-writing"
+  ],
+  "dependencies": {
+    "connectors": [],
+    "builtin": []
+  },
+  "memory": {
+    "mode": "hybrid"
+  },
+  "execution": {
+    "max_iterations": 3,
+    "timeout_seconds": 90,
+    "max_delegation_depth": 0
+  },
+  "permissions": {
+    "allowed_actions": []
+  },
+  "configuration": {
+    "fields": []
+  },
+  "compatibility": {
+    "min_app_version": "1.0.0"
+  },
+  "documentation": "README.md"
+}
