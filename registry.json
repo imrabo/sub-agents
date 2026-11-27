@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "name": "ImRabo Sub-Agent Registry",
+  "description": "Curated declarative specialist agents for ImRabo. Manifests contain instructions and capability/dependency declarations only; executable code is not permitted.",
+  "agents": [
+    {
+      "id": "research-agent",
+      "name": "Research Agent",
+      "description": "Researches a topic, compares sources, and produces a structured evidence-based summary.",
+      "category": "Research",
+      "version": "1.0.0",
+      "manifest": "agents/research-agent/agent.json"
+    },
+    {
+      "id": "code-reviewer",
+      "name": "Code Reviewer",
+      "description": "Reviews code changes for correctness, security, maintainability, and test gaps.",
+      "category": "Development",
+      "version": "1.0.0",
+      "manifest": "agents/code-reviewer/agent.json"
+    },
+    {
+      "id": "writing-editor",
+      "name": "Writing Editor",
+      "description": "Edits technical and business writing for clarity, consistency, and structure.",
+      "category": "Productivity",
+      "version": "1.0.0",
+      "manifest": "agents/writing-editor/agent.json"
+    }
+  ]
+}
